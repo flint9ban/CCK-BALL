@@ -122,6 +122,12 @@
 		        &zip_xy_to_scroll_mapper  // 只留这个，移除 scaler 先
 		    >;
 		};
+		snipe {
+        	layers = <4>;        // 你的精密层号，比如 4
+        	input-processors = <
+            	&zip_xy_scaler 1 5   // 1/5 速 = 超级慢精密（推荐起步值）
+        	>;
+    	};
     };
 };
 
