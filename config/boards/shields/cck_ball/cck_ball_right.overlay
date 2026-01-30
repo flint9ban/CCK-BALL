@@ -120,6 +120,7 @@
 		    layers = <3>;
 		    input-processors = <
 		        &zip_xy_to_scroll_mapper  // 只留这个，移除 scaler 先
+				&zip_scroll_scaler 1 4
 		    >;
 		};
 		snipe {
