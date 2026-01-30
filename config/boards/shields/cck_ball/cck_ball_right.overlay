@@ -138,7 +138,7 @@
 	    snipe {
 	        layers = <4>;
 	        input-processors = <
-	            &zip_cpi_scaler 1 5   // DPI 变成 1/5，超慢精密移动
+	            &zip_xy_scaler 1 5   // DPI 变成 1/5，超慢精密移动
 	        >;
 	    };
     };
