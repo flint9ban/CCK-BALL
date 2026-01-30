@@ -114,7 +114,7 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-		/ 默认：正常光标移动（BASE / POINTER 层）
+		// 默认：正常光标移动（BASE / POINTER 层）
 	    move {
 	        layers = <0 1>;  // BASE 和 POINTER 层（改成你的实际层号）
 	        input-processors = <
