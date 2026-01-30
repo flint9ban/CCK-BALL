@@ -57,8 +57,8 @@
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; 
         //motion-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        scroll-layers = <3>;
-        snipe-layers = <4>;
+        //scroll-layers = <3>;
+        //snipe-layers = <4>;
 		evt-type = <INPUT_EV_REL>;
 		x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
@@ -114,6 +114,33 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
+		/ 默认：正常光标移动（BASE / POINTER 层）
+	    move {
+	        layers = <0 1>;  // BASE 和 POINTER 层（改成你的实际层号）
+	        input-processors = <
+	            &zip_xy_scaler 7 6  // 轻微加速（常见值，轨迹球 DPI 常设 600-1200）
+	            // 或 &zip_xy_scaler 1 1 保持原速
+	        >;
+	    };
+
+	    // 滚动层覆盖（最常见写法）
+	    scroll {
+	        layers = <3>;  // ← 滚动层号，很多人用 2 或 3
+	        input-processors = <
+	            &zip_xy_to_scroll_mapper     // XY → 垂直滚动（最常用）
+	            // &zip_xy_to_hscroll_mapper   // 如果想水平滚动（少见）
+	            &zip_scroll_scaler 1 4       // 常见：滚动速度减到 1/4（太快就调小）
+	            // 可选：&zip_scroll_transform_invert_y  // 方向反了加这个
+	        >;
+	    };
+	
+	    // 可选：精密狙击层（Snipe / Slow mode）
+	    snipe {
+	        layers = <4>;
+	        input-processors = <
+	            &zip_cpi_scaler 1 5   // DPI 变成 1/5，超慢精密移动
+	        >;
+	    };
     };
 };
 
