@@ -28,11 +28,7 @@
 
 / {
     
-    trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
 
-    };
     // 上下滚动编码器行为
 
     scroll_vertical_encoder: scroll_vertical_encoder {
