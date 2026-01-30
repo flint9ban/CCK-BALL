@@ -116,7 +116,12 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-
+		scroll {
+		    layers = <3>;
+		    input-processors = <
+		        &zip_xy_to_scroll_mapper  // 只留这个，移除 scaler 先
+		    >;
+		};
     };
 };
 
