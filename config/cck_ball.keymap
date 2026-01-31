@@ -27,8 +27,6 @@
 &soft_off { hold-time-ms = <2000>; };
 
 / {
-
-
     // 上下滚动编码器行为
 
     scroll_vertical_encoder: scroll_vertical_encoder {
@@ -121,11 +119,11 @@
 
         scroll-layers {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans        &trans        &trans        &trans       &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &kp MINUS       &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp EQUAL    &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &kp UNDERSCORE  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp KP_PLUS  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &kp NUMBER_0    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans       &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &mkp MB2      &trans        &trans        &trans       &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans        &trans         &trans        &trans       &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp MINUS       &kp NUMBER_7  &kp NUMBER_8   &kp NUMBER_9  &kp EQUAL    &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp UNDERSCORE  &kp NUMBER_4  &kp NUMBER_5   &kp NUMBER_6  &kp KP_PLUS  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp NUMBER_0    &kp NUMBER_1  &kp NUMBER_2   &kp NUMBER_3  &trans       &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans          &mkp MB2      &kp BACKSPACE  &trans        &trans       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -142,7 +140,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,
+                // 编码器1：上下滚动,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
