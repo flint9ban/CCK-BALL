@@ -140,7 +140,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -151,7 +151,7 @@
 &trans  &trans  &trans             &trans             &trans               &trans   &trans          &trans            &trans             &trans          &trans           &trans
 &trans  &trans  &kp F7             &kp F8             &kp F9               &kp F12  &trans          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE  &trans
 &trans  &trans  &hrml LEFT_ALT F4  &hrml LEFT_GUI F5  &hrml LEFT_SHIFT F6  &kp F11  &kp LEFT_ARROW  &kp DOWN_ARROW    &kp UP_ARROW       &kp RIGHT       &trans           &trans
-&trans  &trans  &kp F1             &kp F2             &kp F3               &kp F10  &kp PAGE_UP     &kp PAGE_DOWN     &trans             &trans          &trans           &trans
+&trans  &trans  &kp F1             &kp F2             &kp F3               &kp F10  &kp PAGE_UP     &kp PAGE_DOWN     &kp HOME           &kp END         &trans           &trans
 &trans  &trans  &trans             &trans             &trans               &trans   &trans          &trans            &trans             &trans          &trans           &trans
             >;
         };
