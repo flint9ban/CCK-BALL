@@ -5,7 +5,6 @@
  */
  
 #include "cck_ball.dtsi"
-#include <input/processors.dtsi>
 
 &default_transform {
     col-offset = <6>;
@@ -52,20 +51,12 @@
 
     trackball: trackball@0 {
         status = "okay";
-        compatible = "pixart,pmw3610-alt";
-		//ompatible = "pixart,pmw3610";
+        compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
-        irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; 
-        //motion-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        //scroll-layers = <3>;
-        //snipe-layers = <4>;
-		evt-type = <INPUT_EV_REL>;
-		swap-xy;
-		x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
-		force-awake;
-		force-awake-4ms-mode;
+        irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        scroll-layers = <3>;
+        snipe-layers = <4>;
       // automouse-layer = <3>;
     };
 };
@@ -118,19 +109,6 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-		scroll {
-		    layers = <3>;
-		    input-processors = <
-		        &zip_xy_to_scroll_mapper  // 只留这个，移除 scaler 先
-				&zip_scroll_scaler 1 4
-		    >;
-		};
-		snipe {
-        	layers = <4>;        // 你的精密层号，比如 4
-        	input-processors = <
-            	&zip_xy_scaler 1 5   // 1/5 速 = 超级慢精密（推荐起步值）
-        	>;
-    	};
     };
 };
 
